@@ -5,8 +5,6 @@ import { LoginDto } from './dto/login.dto';
 import { AuthGuard } from './guards/auth.guard';
 import { Request } from 'express';
 import { RequestWithUser } from './interfaces/request.niterface';
-import { Roles } from './decorators/roles.decorator';
-import { RolesGuard } from './guards/roles.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -26,8 +24,8 @@ export class AuthController {
     }
 
     @Get('profile')
-    @Roles(['user', 'admin', 'super-admin'])
-    @UseGuards(AuthGuard, RolesGuard)
+    //@Roles(['user', 'admin', 'super-admin'])
+    @UseGuards(AuthGuard)
     profile(@Req() req : RequestWithUser) {
         return req.user;
     }
