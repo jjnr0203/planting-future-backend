@@ -1,10 +1,9 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { RegisterDto } from './dto/register.dto';
-import { LoginDto } from './dto/login.dto';
-import { AuthGuard } from './guards/auth.guard';
-import { Request } from 'express';
-import { RequestWithUser } from './interfaces/request.niterface';
+import { RegisterDto } from '../dto/register.dto';
+import { LoginDto } from '../dto/login.dto';
+import { AuthGuard } from '../guards/auth.guard';
+import { RequestWithUser } from '../interfaces/request.niterface';
+import { AuthService } from '../services/auth.service';
 
 @Controller('auth')
 export class AuthController {
