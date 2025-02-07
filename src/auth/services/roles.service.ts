@@ -12,7 +12,7 @@ export class RolesService {
     ) {}
     
     async create(payload: CreateRoleDto) {
-        const informationUser = await this.rolesRepository.create(payload);
+        const informationUser = this.rolesRepository.create(payload);
         await this.rolesRepository.save(informationUser);
         return informationUser;
       }

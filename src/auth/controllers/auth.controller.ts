@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { RegisterDto } from '../dto/register.dto';
 import { LoginDto } from '../dto/login.dto';
 import { AuthGuard } from '../guards/auth.guard';
-import { RequestWithUser } from '../interfaces/request.niterface';
+import { RequestWithUser } from '../interfaces/request.interface';
 import { AuthService } from '../services/auth.service';
 
 @Controller('auth')

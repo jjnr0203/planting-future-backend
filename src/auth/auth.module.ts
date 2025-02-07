@@ -10,9 +10,13 @@ import { RolesService } from './services/roles.service';
 import { RolesController } from './controllers/roles.controller';
 import { UsersService } from './services/users.service';
 import { UsersController } from './controllers/users.controller';
+import { ConfigModule } from '@nestjs/config';
+import { EmailService } from './services/email.service';
+import { EmailController } from './controllers/email.controller';
 
 @Module({
   imports: [
+  ConfigModule.forRoot(),  
   TypeOrmModule.forFeature([UserEntity, RolesEntity]),
     JwtModule.register({
       global: true,
@@ -20,8 +24,8 @@ import { UsersController } from './controllers/users.controller';
       signOptions: { expiresIn: '1h' },
     })
   ],
-  providers: [AuthService, RolesService, UsersService],
-  controllers: [AuthController, RolesController, UsersController],
+  providers: [AuthService, RolesService, UsersService, EmailService],
+  controllers: [AuthController, RolesController, UsersController, EmailController],
   exports: [AuthModule]
 })
 export class AuthModule {}
