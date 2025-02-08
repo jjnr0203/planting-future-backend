@@ -33,8 +33,10 @@ export class EmailService {
                 bcc: to,
                 subject,
                 html: htmlBody
+
+                
             });
-            return { message: 'Email sent successfully' };
+            return `Email sent successfully a: ${to.toString().substring(0, 5).concat('***@gmail.com')}`;
 
         } catch (error) {
             console.log(error);

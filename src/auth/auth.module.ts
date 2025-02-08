@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './controllers/auth.controller';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constants/jwt.constants';
 import { AuthService } from './services/auth.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RolesEntity } from './entities/roles.entity';
@@ -13,6 +12,7 @@ import { UsersController } from './controllers/users.controller';
 import { ConfigModule } from '@nestjs/config';
 import { EmailService } from './services/email.service';
 import { EmailController } from './controllers/email.controller';
+import { jwtConstants } from './config/envs';
 
 @Module({
   imports: [
